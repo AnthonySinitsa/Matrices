@@ -3,7 +3,9 @@ using UnityEngine;
 public class TransformationGrid : MonoBehaviour{
 
     public TransformationGrid prefab;
+
     public int gridResolution = 10;
+    
     Transform[] grid;
 
     void Awake(){
@@ -27,4 +29,12 @@ public class TransformationGrid : MonoBehaviour{
 		);
 		return point;
 	}
+
+    Vector3 GetCoordinates(int x, int y, int z){
+        return new Vector3(
+            x - (gridResolution - 1) * 0.5f,
+            y - (gridResolution - 1) * 0.5f,
+            z - (gridResolution - 1) * 0.5f
+        );
+    }
 }
