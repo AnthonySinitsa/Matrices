@@ -16,4 +16,15 @@ public class TransformationGrid : MonoBehaviour{
             }
         }
     }
+
+    Transform CreateGridPoint (int x, int y, int z) {
+		Transform point = Instantiate<Transform>(prefab);
+		point.localPosition = GetCoordinates(x, y, z);
+		point.GetComponent<MeshRenderer>().material.color = new Color(
+			(float)x / gridResolution,
+			(float)y / gridResolution,
+			(float)z / gridResolution
+		);
+		return point;
+	}
 }
