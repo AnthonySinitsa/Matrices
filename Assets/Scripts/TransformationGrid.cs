@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TransformationGrid : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class TransformationGrid : MonoBehaviour{
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public TransformationGrid prefab;
+    public int gridResolution = 10;
+    Transform[] grid;
+
+    void Awake(){
+        grid = new Transform[gridResolution * gridResolution * gridResolution];
+        for (int i = 0, z = 0; z < gridResolution; z++) {
+			for (int y = 0; y < gridResolution; y++) {
+				for (int x = 0; x < gridResolution; x++, i++) {
+					grid[i] = CreateGridPoint(x, y, z);
+				}
+            }
+        }
     }
 }
