@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class TransformationGrid : MonoBehaviour{
 
-    public TransformationGrid prefab;
+    public Transform prefab;
 
     public int gridResolution = 10;
-    
+
     Transform[] grid;
 
     void Awake(){
